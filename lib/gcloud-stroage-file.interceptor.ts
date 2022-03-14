@@ -23,7 +23,7 @@ export function GCloudStorageFileInterceptor(
       (await this.interceptor.intercept(context, next)) as Observable<any>;
 
       const request = context.switchToHttp().getRequest();
-      const file = request[fieldName];
+      const file = request.file;
 
       if (!file) {
         Logger.error(
